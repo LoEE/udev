@@ -605,7 +605,7 @@ retry:
         buflen = recvmsg(udev_monitor->sock, &smsg, 0);
         if (buflen < 0) {
                 if (errno != EINTR)
-                        info(udev_monitor->udev, "unable to receive message\n");
+                        info(udev_monitor->udev, "unable to receive message [%d: %s]\n", errno, strerror(errno));
                 return NULL;
         }
 
